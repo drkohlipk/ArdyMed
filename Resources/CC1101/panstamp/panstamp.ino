@@ -1,5 +1,9 @@
 #include <EEPROM.h>
 #include "cc1101.h"
+#include <SoftwareSerial.h>
+
+#define RxD 5 
+#define TxD 6
 
 //The LED is wired to the Arduino Output 4 (physical panStamp pin 19)
 #define LEDOUTPUT 4
@@ -15,6 +19,8 @@ byte chan = 0;
 
 //a flag that a wireless packet has been received
 boolean packetAvailable = false;
+
+SoftwareSerial BTSerial(RxD, TxD); // Receive (RxD), Transmit (TxD)
 
 void blinker()
 {
@@ -35,10 +41,19 @@ void setup()
 {
     Serial.begin(9600);
     Serial.println("start");
+    while (!Serial);
+
+    BTSerial.begin(9600);
+
+    Serial.println ("Enter AT commands:"); 
+    delay(100);
 
     //setup the blinker output
     pinMode(LEDOUTPUT, OUTPUT);
     digitalWrite(LEDOUTPUT, LOW);
+    
+    pinMode(RxD, INPUT);
+    pinMode(TxD, OUTPUT);
 
     //blink once to signal the setup
     blinker();
@@ -46,7 +61,7 @@ void setup()
     cc1101.init();
 
     cc1101.setSyncWord(&syncWord, false);
-    cc1101.setCarrierFreq(CFREQ_915);
+    cc1101.setCarrierFreq(CFREQ_433);
     cc1101.disableAddressCheck(); //if not specified, will only display "packet received"
     //cc1101.setTxPowerAmp(PA_LowPower);
 
@@ -62,7 +77,7 @@ void setup()
     Serial.println("device initialized");
 }
 
-void ReadLQI()
+byte ReadLQI()
 {
     byte lqi = 0;
     byte value = 0;
@@ -70,11 +85,12 @@ void ReadLQI()
     lqi = (cc1101.readReg(CC1101_LQI, CC1101_STATUS_REGISTER));
     value = 0x3F - (lqi & 0x3F);
 
-    Serial.print("CC1101_LQI ");
-    Serial.println(value);
+//    Serial.print("CC1101_LQI ");
+//    Serial.println(value);
+    return value;
 }
 
-void ReadRSSI()
+byte ReadRSSI()
 {
     byte rssi = 0;
     byte value = 0;
@@ -93,20 +109,33 @@ void ReadRSSI()
         value += 74;
     }
 
-    Serial.print("CC1101_RSSI ");
-    Serial.print(value);
+//    Serial.print("CC1101_RSSI ");
+//    Serial.print(value);
+    return value;
 }
 
 void loop()
 {
+    if (BTSerial.available()) 
+    { 
+        Serial.write(BTSerial.read()); 
+    }
+
+    if (Serial.available()) 
+    { 
+        BTSerial.write(Serial.read()); 
+    } 
+    
     if (packetAvailable)
     {
         Serial.println("packet received");
+
         //disable wireless reception interrupt
         detachInterrupt(0);
 
-        ReadRSSI();
-        ReadLQI();
+        byte rssi = ReadRSSI();
+        byte lqi = ReadLQI();
+        
         //clear the flag
         packetAvailable = false;
 
@@ -119,6 +148,8 @@ void loop()
                 Serial.println("crc not ok");
             }
 
+            blinker();
+
             if (packet.length > 0)
             {
                 Serial.print("packet: len ");
@@ -128,6 +159,8 @@ void loop()
                 {
                     Serial.print(packet.data[j], HEX);
                     Serial.print(" ");
+                    BTSerial.print(packet.data[j], HEX);
+                    BTSerial.print(" ");
                 }
                 Serial.println(".");
             }
