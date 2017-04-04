@@ -15,22 +15,22 @@ import {
 export default class ArdyMedReact extends Component {
   render() {
     return (
-      <View style = {styles.outerContainer}>
-				<View style = {styles.circleContainer}>
-					<Text style = {styles.logo}>
-					AM 
-					</Text>
-				</View>
-				<View style = {styles.bottomContainer}>
-					<Text style = {styles.appName}>
-					ArdyMed 
-					</Text>
-					<Text style = {styles.slogan}>
-					Lets Make {'\n'}
-					Diabetes Easy 
-					</Text> 
-				</View>
+		<View style = {styles.outerContainer}>
+			<View style = {styles.circleContainer}>
+				<Text style = {styles.logo}>
+				AM 
+				</Text>
 			</View>
+			<View style = {styles.bottomContainer}>
+				<Text style = {styles.appName}>
+				ArdyMed 
+				</Text>
+				<Text style = {styles.slogan}>
+				Lets Make {'\n'}
+				Diabetes Easy 
+				</Text> 
+			</View>
+		</View>
     );
   }
 }
