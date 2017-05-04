@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{C94B0E20-57B5-4852-AA9A-7A178EBF3AC1}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ArdyMed/Splash.xaml">
     <Files>
-      <File FileName="ArdyMed/Splash.xaml" Line="5" Column="43" />
-      <File FileName="ArdyMed/Splash.xaml.cs" Line="1" Column="1" />
+      <File FileName="ArdyMed/Splash.xaml" Line="7" Column="83" />
+      <File FileName="ArdyMed/Splash.xaml.cs" Line="7" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ArdyMed.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />

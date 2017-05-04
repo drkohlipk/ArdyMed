@@ -4,9 +4,9 @@
 		<AbsoluteLayout BackgroundColor="#FFFFFF">
 			<AbsoluteLayout BackgroundColor="#3EE699" AbsoluteLayout.LayoutBounds="0, 1, 1, 0.75" AbsoluteLayout.LayoutFlags="YProportional, WidthProportional, HeightProportional">
 				<Label Text="ArdyMed" FontSize="30" TextColor="#FFFFFF" HorizontalTextAlignment="Center" AbsoluteLayout.LayoutBounds=".5, .5, 1, .5" AbsoluteLayout.LayoutFlags="All"/>
-				<Label Text="Let's Make&#x0a;Diabetes Easy" FontSize="18" HorizontalTextAlignment="Center" TextColor="#FFFFFF" AbsoluteLayout.LayoutBounds=".5, .65, 1, .5" AbsoluteLayout.LayoutFlags="All"/>
+				<Label Text="Let's Make&#x0a;Diabetes Easy" FontSize="18" TextColor="#FFFFFF" HorizontalTextAlignment="Center" AbsoluteLayout.LayoutBounds=".5, .65, 1, .5" AbsoluteLayout.LayoutFlags="All"/>
 			</AbsoluteLayout>
-			<Button AbsoluteLayout.LayoutFlags="XProportional, YProportional" AbsoluteLayout.LayoutBounds=".5, .13, 200, 200" BorderRadius="100" BackgroundColor="#FFFFFF" HeightRequest="200" WidthRequest="200" Text="AM" FontSize="80" TextColor="#3EE699"/>
+			<Button Text="AM" FontSize="80" TextColor="#3EE699" AbsoluteLayout.LayoutFlags="XProportional, YProportional" AbsoluteLayout.LayoutBounds=".5, .13, 200, 200" BorderRadius="100" BackgroundColor="#FFFFFF" HeightRequest="200" WidthRequest="200"/>
 		</AbsoluteLayout>
 	</ContentPage.Content>
 </ContentPage>
