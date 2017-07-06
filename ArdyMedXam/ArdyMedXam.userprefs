@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{C94B0E20-57B5-4852-AA9A-7A178EBF3AC1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ArdyMed/Splash.xaml">
+    <Files>
+      <File FileName="ArdyMed/Splash.xaml" Line="7" Column="83" />
+      <File FileName="ArdyMed/Splash.xaml.cs" Line="7" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ArdyMed.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ArdyMed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5CC9414A-40EC-44F3-AD0A-183FCA852EC6" />
+  <MultiItemStartupConfigurations />
+</Properties>
